@@ -1,0 +1,1832 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Products - SwiftLink Wholesale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* Buttons for pages */
+        .btn {
+            display: inline-block;
+            padding: 0px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            border-radius: 50px;
+            background: #00000078;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px rgba(0, 255, 204, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #00ffcc;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px rgba(0, 255, 204, 0.8);
+        }
+
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: repeating-linear-gradient(45deg, black, transparent 100px); /* Full-page Neon gradient */
+            background-attachment: fixed; /* Fix the background */
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0); /* Semi-transparent nav background */
+            padding: 1px;
+            text-align: center;
+            padding-top: 15px;
+            position: fixed;
+            z-index: 5;
+            transition: transform 0.3s ease-in-out; /* Smooth transition for hiding/showing */
+            width: 100%;
+        }
+
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: 400;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 40px 20px;
+        }
+
+        .product {
+            background-color: rgba(34, 34, 34, 0.8); /* Slightly transparent background for the product */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .product a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover img {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
+        }
+
+        .product h3 {
+            margin: 15px 0;
+            font-size: 1.1em;
+            font-weight: 200;
+        }
+
+        .product p.price {
+            font-size: 1.2em;
+            color: #00ffcc;
+            margin-bottom: 10px;
+        }
+
+        .purchase-button a {
+            display: inline-block;
+            padding: 1px 35px;
+            font-size: 0.8em;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            border-radius: 50px;
+            background: transparent;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px rgba(0, 255, 204, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        .purchase-button a:hover {
+            background-color: #00ffcc;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px rgba(0, 255, 204, 0.8);
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.5); /* Footer with a semi-transparent background */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9em;
+            color: #ddd;
+        }
+
+        h1 {
+            margin: 1%;
+            padding-top: 10px;
+            padding-bottom: 0%;
+            background: #00000078;
+            border-radius: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-weight: 400;
+            font-style: italic;
+            color: #a79f9f;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 12px; /* Reduce font size for smaller screens */
+            }
+        
+            .product img {
+                width: 60%; /* Reduce image size for smaller screens */
+            }
+        
+            .btn {
+                padding: 3px 30px; /* Make buttons smaller on mobile devices */
+            }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="btn">Home</a>
+        <a href="products.html" class="btn">Products</a>
+        <a href="about.html" class="btn">About</a>
+        <a href="contact.html" class="btn">Contact</a>
+        <a href="reborn.html" class="btn">Reborn</a>
+    </nav>
+
+    <header>
+        <h1> Makro-SwiftLink </h1>
+    </header>
+
+
+    <!-- JavaScript for navbar scroll behavior wrapped in an IIFE -->
+
+
+
+
+    <script>
+        (function() {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('nav');
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop) {
+                    // Scroll Down - Hide navbar
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scroll Up - Show navbar
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            });
+        })();
+    </script>
+
+    <div class="product-list">
+        <!-- Product 1 -->
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
+                <img src="g1.jpg" alt="Product 1">
+                <h3>Product Name 1</h3>
+                <p class="price">R749.99</p>
+            </a>
+
+            <!-- Purchase Button -->
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
+                <img src="g2.png" alt="Product 2">
+                <h3>Cherry AquaTab Deluxe 10,1 Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
+                <p class="price">R 1999</p>
+            </a>
+
+            <!-- Purchase Button -->
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Add more products here from 3 to 111 -->
+        <!-- Example template for products 3 to 111 -->
+
+        <!-- Product 3 -->
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">
+                <img src="2954.png" alt="Product 3">
+                <h3>Wireless Headphones TWi12 Bluetooth Headset (Pink)</h3>
+                <p class="price">R 149</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">
+                <img src="53843.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (Silver, Type A)</h3>
+                <p class="price">R 139</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/cellphones/cell-phone-accessories/accessories/cables-chargers-batteries/adaptors-adaptive-charging-mobile-charger-with-detachable-cable-black-/p/BHRH5HVKGZFGCH4Y">
+                <img src="2088.png" alt="Product 3">
+                <h3>Adaptors Adaptive Charging Mobile Charger with Detachable Cable (Black)</h3>
+                <p class="price">R 119</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/cellphones/cell-phone-accessories/accessories/cables-chargers-batteries/adaptors-adaptive-charging-mobile-charger-with-detachable-cable-black-/p/BHRH5HVKGZFGCH4Y">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-blue-type-a-/p/FDRH5P6YANWMZZG5">
+                <img src="85024.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (Blue, Type A)</h3>
+                <p class="price">R 129</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-blue-type-a-/p/FDRH5P6YANWMZZG5">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-teansmemory-16-gb-silver-type-a-/p/FDRH5P4WYNR4YMRZ">
+                <img src="53829.png" alt="Product 3">
+                <h3>Kioxia TeansMemory 16 GB (Silver, Type A)</h3>
+                <p class="price">R 119</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-teansmemory-16-gb-silver-type-a-/p/FDRH5P4WYNR4YMRZ">Buy Now</a>
+            </div>
+        </div>
+
+            <!--THIS IS THE FIRST 7 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-white-type-a-/p/FDRH5P5RRYZDHWZR">
+                <img src="850200.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (White, Type A)</h3>
+                <p class="price">R 129</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-white-type-a-/p/FDRH5P5RRYZDHWZR">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/health-beauty/healthcare/sexual-health/condoms-lubricants/condoms/trust-protection-cc-smooth-na-condom-for-men-set-of-3-3-sheets-/p/CDMH4M9Y39SZSAVT">
+                <img src="3380.png" alt="Product 3">
+                <h3>Trust Protection-CC Smooth NA Condom For Men (Set of 3, 3 Sheets)</h3>
+                <p class="price">R 389</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/health-beauty/healthcare/sexual-health/condoms-lubricants/condoms/trust-protection-cc-smooth-na-condom-for-men-set-of-3-3-sheets-/p/CDMH4M9Y39SZSAVT">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/remax-rmax-rm-550-wired-headset-white-/p/HDPH5HQSGUMBKZNY">
+                <img src="94498.png" alt="Product 3">
+                <h3>Remax Rmax-RM-550 Wired Headset (White)</h3>
+                <p class="price">R 199</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/remax-rmax-rm-550-wired-headset-white-/p/HDPH5HQSGUMBKZNY">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Trust Protection Smooth NA Condom For Men (Set of 3, 3 Sheets)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 12 ITEMS -->
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax Wired RM-550 Wired Headset (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax Rmax-RM-510 Wired Headset (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Generic Headphones TWS-i12 Bluetooth Headset (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 15 ITEMS -->
+
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Zambuk Zam-Buk The Real Makoya Herbal Balm (Pack of 36, 7 g)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Tonor K1 Microphone Tonor Pro Dynamic Karaoke Microphone</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Generic Headphones IOS/Android Bluetooth Headset (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Generic Headphones i12 Bluetooth Headset (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Riversong EA25 Wired Headset (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+        <!--THIS IS THE FIRST 20 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Awireles Keyboard B033 Bluetooth Multi-device Keyboard (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Cherry Tab Cherry Aquatab Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Generic Headphones Remax TWS-10i Bluetooth Headset (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Adreamer Celeron Intel Celeron Quad Core - (8 GB/128 GB SSD/Windows 10 Home/8 GB Graphics) PM1005P 2 in 1 Laptop (10.1 inch, Black, 1.65 kg, With MS Office)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>KingGear Air Bed King Gear Air Bed 3.9 inch Single Coir Mattress (L x W: 200 cm x 70 cm)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+        <!--THIS IS THE FIRST 25 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Tonor TC777 Pro Tonor TC777 Pro Gaming and Streaming Microphone</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>ITSOHOO Intel Celeron Dual Core - (2 GB/64 GB SSD/Windows 10) 10.1 Notebook (10.1 inch, Black, 1.5 kg, With MS Office)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kemic Wireless DECT Phone Cordless Landline Phone (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Newyes ab0607 Scientific  Calculator (12 Digit)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>KingGear Air Bed KingGear Air-Bed 3.9 inch Single Coir Mattress (L x W: 200 cm x 70 cm)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+        <!--THIS IS THE FIRST 30 ITEMS -->
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Voxtar HP58 Wireless Thermal Receipt Printer</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Tonor TC30 Condenser Microphone TC30 Tonor Cardioid Microphone </h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Bluetooth Thermometer Bluetooth Thermo Instant Read Thermocouple Kitchen Thermometer (Digital)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>LYZRC Drone L900 Pro SE Professional Drone (Control Range: 600 m)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Samsung Note 20 128GB Bronze (Bronze, 128 GB) (8 GB RAM)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 35 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Tonor TC310 Microphone Tonor Gaming Mic - USB Connection Microphone</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To USB Type C 1.6 m HQ68901 (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Shardo CG638B Blade Grinder (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Sky Spirit Drone P14 Mini Mini Drone (Control Range: 100 m)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To USB Type C 0.7 m RC-138-BLK (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+        <!--THIS IS THE FIRST 40 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Lightning 1.9 m APPL-2L (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, Pack of: 2)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Lightning 0.6 m APPL-3L (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, Pack of: 3)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To USB Type C 2 m Type-C-2M (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Tech-Collective USB Type A To Lightning 2.1 m Appl-2M-Cable (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>LYZRC Drone L900 Pro SE Professional Drone (Control Range: 600 m)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+        <!--THIS IS THE FIRST 45 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pro-Tech WiFi, USB, SD Card 16 GB Internal Memory LED (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Charging Cables USB Type C To USB Type C 0.8 m Type-C-1M (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax Audio Adapter 1.2 m APPLE-7-7Plus (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pro-Tech Pro-Techt 3.2" Video Baby Monitor</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Micro USB 2.11 m 4851284529m (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 50 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Yesper MPTALX19855739-0 0.98 ft Battery Jumper Starter Aluminium For  Bike, Car, Truck (Pack of 1)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>SwiftShop USB Type A To Micro USB 1.15 m 363035905 (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Samsung Note 10 258GB Black (Black, 256 GB) (8 GB RAM)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Mini HDMI To HDMI HDMI To HDMI 1 m HDMI-MINI1M (Compatible with Laptop, Computer, Speaker, TV, Gaming Console, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Lightning 2.2 m RC94i (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 55 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To USB Type C 0.9 m Type-C-2M (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>HDMI HDMI To HDMI 5 m Braided-5M (Compatible with Laptop, Computer, Speaker, TV, Gaming Console, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Micro USB 2.3 m RC94m (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To Lightning 1.1 m APL-6-7-7PLUS-8-8PLUS (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbrand 2623 Bluetooth Headset (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 60 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>SwiftShop Lightning To 3.5mm Jack 1.5 m MPTAL73939310 (Compatible with Mobile, Laptop, Computer, Wireless Earphones, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type A To USB Type C 1.65 m HQ689011 (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, Pack of: 3)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Remax USB Type C To USB Type C 1.11 m 4158624 (Compatible with Mobile, Laptop, Computer, Wireless Earphones, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kebo Magnetic Tiles Magnet Building Blocks Magnetic & Metallic Blocks (Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Not Found USB Type C To Lightning 0 m 1817 (Compatible with Mobile, Tablet, Smart Watch, White, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 65 ITEMS -->
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbranded NA Bluetooth without Mic Headset </h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbranded 2600 mAh Power Bank (White, Lithium-ion, NA for Earbuds)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbranded 5000 mAh Wireless Power Bank (Black, Lithium Polymer, Fast Charging for Laptop, Mobile, Smartwatch)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Wolfbox i05 4K Dash Camera Sports and Action Camera (Black, Digital, 1080 MP)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbrand 10.5 W Car Charger (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 70 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbrand NA 2 m 1542 (Compatible with Mobile, TV, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>OCS Pocket Digital Pocket Weighing Scale (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Wolfbox 4K Smart Rear View Mirror Camera Sports and Action Camera (Black, Digital, 1080 MP)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Scotch Brite Foam Scourers Scrub Pad (Medium, Pack of 4)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3> Wired USB Desktop Keyboard (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 75 ITEMS -->
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kioxia Flash Drive -64GB USB - U401 64 GB (Grey, Type A)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>H2oFloss HF-P11 Battery Rechargeable Cordless Water Flosser (Black, Pack of 7)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>NA Intel Celeron Quad Core - (6 GB/128 GB SSD/Windows 10 Pro/6 GB Graphics) NA Notebook (14 inch, Grey, 1.5 kg)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>SUPERFIRE HL25 Torch (Black, 7.5 cm, Rechargeable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 15 Lite Tablet PC Android 4 GB RAM (Wi-Fi+5G, 128 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+         <!--THIS IS THE FIRST 80 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom K7 PRO Android 2 GB RAM (Wi-Fi Only, 2 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Fitness Tracker K56 Smartwatch (Green Strap)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>HYUNDAI Smart Tablet HYTAB PRO Android 64 GB RAM (Wi-Fi+4G, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 10 Max Kids Edition Android 3 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom K7 Pro Android 2 GB RAM (Wi-Fi Only, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 85 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 12 Tablet PC Android 6 GB RAM (Wi-Fi+5G, 128 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 8 Kids Edition Android 4 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 11 Kids Edition Android 4 GB RAM (Wi-Fi+5G, 128 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 11 Kids Edition Android 4 GB RAM (Wi-Fi+5G, 128 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 90 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom K7 Pro Android 2 GB RAM (Wi-Fi Only, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div> 
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Cherry AquaTab Deluxe 10,1 Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom E10 Android 4 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Generic DSTV Decoder Worldwide Adaptor (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div> 
+
+
+
+
+
+        <!--THIS IS THE FIRST 95 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 10 Max Kids Edition Android 3 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom M7 Android 2 GB RAM (Wi-Fi Only, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom K7 Pro Android 2 GB RAM (Wi-Fi Only, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div> 
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 100 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Pritom K7 Pro Android 2 GB RAM (Wi-Fi Only, 32 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 8 Kids Edition Android 4 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Pritom Tab 10 Max Kids Edition Android 3 GB RAM (Wi-Fi Only, 64 GB)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>NA Adaptive Charging Mobile Charger with Detachable Cable (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!--THIS IS THE FIRST 105 ITEMS -->
+
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Great Asia Ryzen R7-4700 AMD Ryzen 7 Octa Core 4th Gen - (32 GB/1 TB SSD/Windows 11 Pro/4 GB Graphics) R7-4700U Notebook (15.6 inch, Silver, 1.85 kg, With MS Office)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div> 
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Astrum 3 Pin Male To USB Type C 3 m 8011 (Compatible with Mobile, Black, One Cable)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Unbranded Adaptive Charging Mobile Charger with Detachable Cable (Black)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>iPhone Adaptive Charging Mobile Charger with Detachable Cable (White)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+        <!--THIS IS THE FIRST 110 ITEMS -->
+
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Rugged rug@5383 Smartwatch (Black Strap)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Sandisk MicroSDXC 300 MB/s  Memory Card</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Kalour Signature Round Shaped Colour Pencil (Set of 1, Multicolour)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Toshiba 64GB USB 2.0 64 GB (White, Type A)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+         <!--THIS IS THE FIRST 115 ITEMS -->
+
+
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Expert Travel Ware Luggage Set Check-in Suitcase 4 Wheels - 28 inch (Silver)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+
+         <!--THIS IS THE FIRST 120 ITEMS -->
+
+
+
+
+        <!-- Product 4 to Product 111 follow the same structure -->
+        <!-- Please copy the block above and adjust the details for each product (URL, Image, Name, Price) -->
+
+    </div>
+
+    <footer>
+        
+        <div style="margin-top: 10px;">
+            <a href="https://www.tiktok.com" target="_blank" style="margin: 0 10px;">
+                <img src="tik.png" alt="TikTok" style="width: 30px;">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px;">
+                <img src="face.png" alt="Facebook" style="width: 30px;">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" style="margin: 0 10px;">
+                <img src="twit.png" alt="Twitter" style="width: 30px;">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px;">
+                <img src="insta.png" alt="Instagram" style="width: 30px;">
+            </a>
+            <a href="https://telegram.org" target="_blank" style="margin: 0 10px;">
+                <img src="tele.png" alt="Telegram" style="width: 30px;">
+            </a>
+            <a href="https://www.whatsapp.com" target="_blank" style="margin: 0 10px;">
+                <img src="whats.png" alt="WhatsApp" style="width: 30px;">
+            </a>
+        </div>
+        <br>
+
+
+        <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
+    </footer>
+
+</body>
+</html>

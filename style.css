@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+html {
+    background-color: white;
+
+}
+
+nav {
+    background-color: #444;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+section {
+    padding: 20px;
+    margin-left: 0px;
+    padding-top: 50px;
+}
+
+footer {
+    background-color: #888383;
+    color: white;
+    text-align: center;
+    padding: 0px;
+    position: fixed;
+    width: 100%;
+    bottom: -15px;
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 12px; /* Reduce font size for smaller screens */
+    }
+
+    .product img {
+        width: 60%; /* Reduce image size for smaller screens */
+    }
+
+    .btn {
+        padding: 3px 30px; /* Make buttons smaller on mobile devices */
+    }
+}
