@@ -213,6 +213,11 @@
     </footer>
 
     <script>
+        // Detect device type and redirect to mobile-friendly page if on mobile
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            window.location.href = "mobile.html";
+        }
+
         let timeout;
         const bgImage = document.querySelector('.bg-image');
         const buttons = document.querySelectorAll('.btn');
@@ -256,9 +261,6 @@
         });
 
     </script>
-
-
-    
 
 </body>
 </html>
