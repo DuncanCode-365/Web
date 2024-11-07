@@ -4,161 +4,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home - SwiftLink Wholesale</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>About - My Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
-        /* Basic Reset */
-        * {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-image: url('g1.jpg');
+            background-size: 50%;
+            background-attachment: fixed;
+            color: #000;
         }
 
-        html, body {
-            height: 100%;
+        section {
+            width: 50%;
+            margin-left: 1%;
+            padding: 25px;
+            background: #fefefe;
+            border-radius: 10px;
+            transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(145deg, #00ccff, #0e0e0e, #374c94, #4fd6ad);
+        section:hover {
+            background: rgba(0, 0, 0, 0.8);
             color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            line-height: 1.8;
-            height: 100%;
-            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
         }
 
-        /* Background image */
-        .bg-image {
+        h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #000;
+            transition: color 0.5s ease;
+        }
+
+        section:hover h2 {
+            color: #00ffcc;
+        }
+
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #000;
+            transition: color 0.5s ease;
+        }
+
+        section:hover p, section:hover li {
+            color: #fff;
+        }
+
+        nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
-            background-image: url('ppl1.jpg'); /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.8;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 10px 0;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 18px;
+            text-align: center;
+            z-index: 100;
         }
 
         nav a {
-            color: #fff;
-            font-size: 1em;
-            font-weight: 500;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background 0.3s;
-        }
-
-        nav a:hover {
-            background: #00ffcc;
-            color: #000;
-        }
-
-        .content {
-            margin-top: 70px; /* Space for the fixed navigation */
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            animation: fadeInDown 1.5s ease-in-out;
-        }
-
-        header h2, header h3, header h4 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-        }
-
-        .btn {
-            display: inline-block;
+            margin: 0 15px;
             padding: 10px 20px;
-            font-size: 1em;
             color: #fff;
             text-decoration: none;
             border: 2px solid #00ffcc;
-            border-radius: 30px;
-            background: transparent;
-            transition: background-color 0.3s, transform 0.3s;
-            margin: 20px auto;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        .btn:hover {
+        nav a:hover {
             background-color: #00ffcc;
             color: #000;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         footer {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #ddd;
             text-align: center;
-            padding: 15px;
-            margin-top: auto;
+            padding: 1px;
+            background-color: rgb(0 0 0 / 47%);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 0px;
         }
 
-        footer a img {
-            width: 24px;
-            margin: 5px;
+        footer p {
+            color: #fff;
+            font-size: 1em;
         }
 
-        /* Animations */
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            nav a {
-                font-size: 0.9em;
-                padding: 8px 10px;
-            }
-
-            header h1 {
-                font-size: 1.5em;
-            }
-
-            header h2, header h3, header h4 {
-                font-size: 1em;
-            }
-
-            .btn {
-                font-size: 0.9em;
-                padding: 8px 15px;
+            section {
+                width: 90%;
+                margin-left: 5%;
             }
         }
     </style>
 </head>
 <body>
-    <div class="bg-image"></div> <!-- Background image -->
+
+    <!-- Mobile Redirect Script -->
+    <script>
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            window.location.href = "/mobile-about.html";
+        }
+    </script>
 
     <nav>
         <a href="index.html">Home</a>
@@ -167,40 +121,71 @@
         <a href="reborn.html">Reborn</a>
     </nav>
 
-    <div class="content">
-        <header>
-            <h1>Exclusive Wholesale Offers at SwiftLink</h1>
-            <h2>Products only on <strong>Promotion</strong> at Makro online stores</h2>
-            <h3>No more searching for promotions and specials</h3>
-            <h4>We handle it for you!</h4>
-        </header>
+    <section>
+        <h2>About Us</h2>
+        <p>Welcome to SwiftLink!</p>
+        <p>At Makro-SwiftLink, we believe in making quality products accessible to everyone. Our e-commerce platform offers an extensive selection of over a thousand items, ranging from the latest gadgets to practical small home appliances and everything in between.</p>
+        <br>
 
-        <a href="products.html" class="btn">Shop Now</a>
-    </div>
+        <h2>Mission</h2>
+        <p>Our mission is to provide a seamless shopping experience while delivering top-notch products at competitive prices. We strive to ensure that our customers can find everything they need in one convenient location, whether it's for personal use, gifts, or everyday essentials.</p>
+        <br>
+
+        <h2>Our Products</h2>
+        <p>We are proud to offer a diverse range of products, including:</p>
+        <ul>
+            <li><strong>Gadgets</strong>: Stay ahead of the curve with our selection of innovative gadgets that simplify your life and enhance your daily routines.</li>
+            <li><strong>Home Appliances</strong>: Explore our collection of portable home appliances designed to make your chores easier and more efficient.</li>
+            <p>From toys to your everyday-use items. Specializing mainly in rare items on the market today.</p>
+        </ul>
+        <br>
+
+        <h2>Quality Assurance</h2>
+        <p>Quality is at the heart of what we do. Every product in our store undergoes rigorous quality checks to ensure it meets our high standards. We partner with trusted suppliers and manufacturers to bring you the best products available in the market.</p>
+        <br>
+
+        <h2>Customer Satisfaction</h2>
+        <p>Your satisfaction is our top priority. Our dedicated customer service team is here to assist you with any questions or concerns you may have. We aim to provide prompt and helpful responses to ensure that your shopping experience is nothing short of excellent.</p>
+        <br>
+
+        <h2>Why Choose Us?</h2>
+        <ul>
+            <li><strong>Wide Selection</strong>: With over a thousand items listed, we are your one-stop shop for all your needs.</li>
+            <li><strong>Competitive Prices</strong>: We offer fair prices without compromising on quality.</li>
+            <li><strong>Secure Shopping</strong>: Our website is equipped with the latest security measures to protect your personal information.</li>
+        </ul>
+        <br>
+
+        <h2>Join Our Community</h2>
+        <p>Stay connected with us! Follow us on <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-"><em>Instagram</em></a> for the latest updates, promotions, and product launches. We love to hear from our customers, so don’t hesitate to reach out with feedback or suggestions. Thank you for choosing SwiftLink. We look forward to serving you!</p>
+        <br>
+    </section>
 
     <footer>
-        <div>
-            <a href="https://www.tiktok.com" target="_blank"><img src="tik.png" alt="TikTok"></a>
-            <a href="https://www.facebook.com" target="_blank"><img src="face.png" alt="Facebook"></a>
-            <a href="https://www.twitter.com" target="_blank"><img src="twit.png" alt="Twitter"></a>
-            <a href="https://www.instagram.com" target="_blank"><img src="insta.png" alt="Instagram"></a>
-            <a href="https://telegram.org" target="_blank"><img src="tele.png" alt="Telegram"></a>
-            <a href="https://www.whatsapp.com" target="_blank"><img src="whats.png" alt="WhatsApp"></a>
+        <div style="margin-top: 10px;">
+            <a href="https://www.tiktok.com" target="_blank" style="margin: 0 10px;">
+                <img src="tik.png" alt="TikTok" style="width: 30px;">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px;">
+                <img src="face.png" alt="Facebook" style="width: 30px;">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" style="margin: 0 10px;">
+                <img src="twit.png" alt="Twitter" style="width: 30px;">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px;">
+                <img src="insta.png" alt="Instagram" style="width: 30px;">
+            </a>
+            <a href="https://telegram.org" target="_blank" style="margin: 0 10px;">
+                <img src="tele.png" alt="Telegram" style="width: 30px;">
+            </a>
+            <a href="https://www.whatsapp.com" target="_blank" style="margin: 0 10px;">
+                <img src="whats.png" alt="WhatsApp" style="width: 30px;">
+            </a>
         </div>
-        <p>&copy; 2024 SwiftLink Wholesale - All rights reserved</p>
+        <br>
+
+        <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
     </footer>
 
-    <script>
-        // JavaScript to detect device type and display specific content or redirect if needed
-        document.addEventListener('DOMContentLoaded', function () {
-            if (window.innerWidth <= 768) {
-                console.log("Mobile version loaded");
-                // Add specific changes or redirection logic if necessary for mobile devices
-            } else {
-                console.log("Desktop version loaded");
-                // Add specific changes for desktop view if needed
-            }
-        });
-    </script>
 </body>
 </html>
