@@ -3,212 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SwiftLink Wholesale Products</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Products - SwiftLink Wholesale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
+        /* Buttons for pages */
+        .btn {
+            display: inline-block;
+            padding: 0px 25px;
+            font-size: 1.2em;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            border-radius: 50px;
+            background: #00000078;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px rgba(0, 255, 204, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #00ffcc;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px rgba(0, 255, 204, 0.8);
+        }
+
         /* Basic Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-        /* Body and Font Settings */
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: #333;
-            background-color: #f9f9f9;
+
+        html, body {
+            height: 100%;
         }
 
-        /* Navbar */
-        nav {
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: repeating-linear-gradient(45deg, black, transparent 100px); /* Full-page Neon gradient */
+            background-attachment: fixed; /* Fix the background */
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        header {
+            height: 30vh;
             display: flex;
             justify-content: center;
-            padding: 15px;
-            background: #fff;
-            border-bottom: 1px solid #ddd;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            align-items: center;
+            color: #fff;
+            text-align: center;
         }
-        
+
+        nav {
+            background: rgba(0, 0, 0, 0); /* Semi-transparent nav background */
+            padding: 1px;
+            text-align: center;
+            padding-top: 15px;
+            position: fixed;
+            z-index: 5;
+            transition: transform 0.3s ease-in-out; /* Smooth transition for hiding/showing */
+            width: 100%;
+        }
+
         nav a {
-            margin: 0 20px;
+            color: #fff;
+            margin: 0 15px;
             text-decoration: none;
-            color: #333;
-            font-size: 1.1em;
-            font-weight: 500;
+            font-size: 1.2em;
+            font-weight: 400;
             transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: #0d6efd;
-            text-shadow: 0 0 4px #0d6efd;
+            color: #00ffcc;
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: #e3f2fd;
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            color: #0d6efd;
-            margin-bottom: 10px;
-        }
-
-        /* Product Grid */
         .product-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
             padding: 40px 20px;
-            max-width: 1200px;
-            margin: auto;
         }
 
         .product {
-            background-color: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: rgba(34, 34, 34, 0.8); /* Slightly transparent background for the product */
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .product a {
+            text-decoration: none;
+            color: inherit;
         }
 
         .product img {
             width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(0, 255, 204, 0.5);
         }
 
         .product h3 {
-            font-size: 1.2em;
-            padding: 15px 20px;
-            font-weight: 500;
-            color: #333;
+            margin: 15px 0;
+            font-size: 1.1em;
+            font-weight: 200;
         }
 
         .product p.price {
-            font-size: 1.1em;
-            color: #0d6efd;
-            padding: 0 20px 15px;
-            font-weight: 700;
-        }
-
-        /* Buy Now Button */
-        .purchase-button {
-            text-align: center;
-            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #00ffcc;
+            margin-bottom: 10px;
         }
 
         .purchase-button a {
-            padding: 10px 25px;
-            font-size: 0.9em;
+            display: inline-block;
+            padding: 1px 35px;
+            font-size: 0.8em;
             color: #fff;
-            background: linear-gradient(90deg, #0d6efd, #00c9ff);
-            border-radius: 25px;
             text-decoration: none;
-            transition: background 0.3s ease, transform 0.3s ease;
+            border: 2px solid #00ffcc;
+            border-radius: 50px;
+            background: transparent;
+            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px rgba(0, 255, 204, 0.5);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
         }
-
+        
         .purchase-button a:hover {
-            background: linear-gradient(90deg, #00c9ff, #0d6efd);
-            transform: translateY(-3px);
+            background-color: #00ffcc;
+            color: #000;
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px rgba(0, 255, 204, 0.8);
         }
 
-        /* Footer */
         footer {
+            background-color: rgba(0, 0, 0, 0.5); /* Footer with a semi-transparent background */
+            color: white;
             text-align: center;
             padding: 20px;
-            background: #f1f1f1;
-            color: #666;
+            margin-top: 40px;
+        }
+
+        footer p {
             font-size: 0.9em;
-            margin-top: 20px;
+            color: #ddd;
         }
 
-        /* Social Icons */
-        .social-icons img {
-            width: 30px;
-            margin: 0 10px;
-            filter: grayscale(100%);
-            transition: filter 0.3s ease;
+        h1 {
+            margin: 1%;
+            padding-top: 10px;
+            padding-bottom: 0%;
+            background: #00000078;
+            border-radius: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            font-weight: 400;
+            font-style: italic;
+            color: #a79f9f;
         }
 
-        .social-icons img:hover {
-            filter: grayscale(0%);
-        }
-
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
+        @media (max-width: 768px) {
+            body {
+                font-size: 12px; /* Reduce font size for smaller screens */
+            }
+        
+            .product img {
+                width: 60%; /* Reduce image size for smaller screens */
+            }
+        
+            .btn {
+                padding: 3px 30px; /* Make buttons smaller on mobile devices */
             }
         }
+        
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="about.html">About</a>
-        <a href="reborn.html">Reborn</a>
+        <a href="index.html" class="btn">Home</a>
+        <a href="products.html" class="btn">Products</a>
+        <a href="about.html" class="btn">About</a>
+        <a href="reborn.html" class="btn">Reborn</a>
     </nav>
 
-    <!-- Header -->
     <header>
-        <h1>SwiftLink Wholesale</h1>
+        <h1> Makro-SwiftLink </h1>
     </header>
 
-    <!-- Product List -->
+
+    <!-- JavaScript for navbar scroll behavior wrapped in an IIFE -->
+
+
+
+
+    <script>
+        (function() {
+            let lastScrollTop = 0;
+            const navbar = document.querySelector('nav');
+
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+                if (scrollTop > lastScrollTop) {
+                    // Scroll Down - Hide navbar
+                    navbar.style.transform = 'translateY(-100%)';
+                } else {
+                    // Scroll Up - Show navbar
+                    navbar.style.transform = 'translateY(0)';
+                }
+                lastScrollTop = scrollTop;
+            });
+        })();
+    </script>
+
     <div class="product-list">
-        <!-- Sample Product -->
+        <!-- Product 1 -->
         <div class="product">
-            <a href="https://example.com">
-                <img src="product1.jpg" alt="Product 1">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
+                <img src="g1.jpg" alt="Product 1">
                 <h3>Product Name 1</h3>
                 <p class="price">R749.99</p>
             </a>
+
+            <!-- Purchase Button -->
             <div class="purchase-button">
-                <a href="https://example.com">Buy Now</a>
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
             </div>
         </div>
 
-        <!-- Repeat similar blocks for each product -->
-        <!-- Example Product -->
+        <!-- Product 2 -->
         <div class="product">
-            <a href="https://example.com">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product Name 2</h3>
-                <p class="price">R1999.99</p>
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
+                <img src="g2.png" alt="Product 2">
+                <h3>Cherry AquaTab Deluxe 10,1 Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
+                <p class="price">R 1999</p>
+            </a>
+
+            <!-- Purchase Button -->
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
+            </div>
+        </div>
+
+        <!-- Add more products here from 3 to 111 -->
+        <!-- Example template for products 3 to 111 -->
+
+        <!-- Product 3 -->
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">
+                <img src="2954.png" alt="Product 3">
+                <h3>Wireless Headphones TWi12 Bluetooth Headset (Pink)</h3>
+                <p class="price">R 149</p>
             </a>
             <div class="purchase-button">
-                <a href="https://example.com">Buy Now</a>
+                <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">Buy Now</a>
             </div>
         </div>
-        <!-- More products can be added in the same format -->
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">
+                <img src="53843.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (Silver, Type A)</h3>
+                <p class="price">R 139</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/cellphones/cell-phone-accessories/accessories/cables-chargers-batteries/adaptors-adaptive-charging-mobile-charger-with-detachable-cable-black-/p/BHRH5HVKGZFGCH4Y">
+                <img src="2088.png" alt="Product 3">
+                <h3>Adaptors Adaptive Charging Mobile Charger with Detachable Cable (Black)</h3>
+                <p class="price">R 119</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/cellphones/cell-phone-accessories/accessories/cables-chargers-batteries/adaptors-adaptive-charging-mobile-charger-with-detachable-cable-black-/p/BHRH5HVKGZFGCH4Y">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-blue-type-a-/p/FDRH5P6YANWMZZG5">
+                <img src="85024.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (Blue, Type A)</h3>
+                <p class="price">R 129</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-blue-type-a-/p/FDRH5P6YANWMZZG5">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-teansmemory-16-gb-silver-type-a-/p/FDRH5P4WYNR4YMRZ">
+                <img src="53829.png" alt="Product 3">
+                <h3>Kioxia TeansMemory 16 GB (Silver, Type A)</h3>
+                <p class="price">R 119</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-teansmemory-16-gb-silver-type-a-/p/FDRH5P4WYNR4YMRZ">Buy Now</a>
+            </div>
+        </div>
+
+            <!--THIS IS THE FIRST 7 ITEMS -->
+
+
+
+
+
+
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-white-type-a-/p/FDRH5P5RRYZDHWZR">
+                <img src="850200.png" alt="Product 3">
+                <h3>Kioxia TransMemory 32 GB (White, Type A)</h3>
+                <p class="price">R 129</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-white-type-a-/p/FDRH5P5RRYZDHWZR">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/health-beauty/healthcare/sexual-health/condoms-lubricants/condoms/trust-protection-cc-smooth-na-condom-for-men-set-of-3-3-sheets-/p/CDMH4M9Y39SZSAVT">
+                <img src="3380.png" alt="Product 3">
+                <h3>Trust Protection-CC Smooth NA Condom For Men (Set of 3, 3 Sheets)</h3>
+                <p class="price">R 389</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/health-beauty/healthcare/sexual-health/condoms-lubricants/condoms/trust-protection-cc-smooth-na-condom-for-men-set-of-3-3-sheets-/p/CDMH4M9Y39SZSAVT">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/remax-rmax-rm-550-wired-headset-white-/p/HDPH5HQSGUMBKZNY">
+                <img src="94498.png" alt="Product 3">
+                <h3>Remax Rmax-RM-550 Wired Headset (White)</h3>
+                <p class="price">R 199</p>
+            </a>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/remax-rmax-rm-550-wired-headset-white-/p/HDPH5HQSGUMBKZNY">Buy Now</a>
+            </div>
+        </div>
+
+        <div class="product">
+            <a href="URL_FOR_PRODUCT_3">
+                <img src="IMAGE_FOR_PRODUCT_3" alt="Product 3">
+                <h3>Trust Protection Smooth NA Condom For Men (Set of 3, 3 Sheets)</h3>
+                <p class="price">RPRICE_FOR_PRODUCT_3</p>
+            </a>
+            <div class="purchase-button">
+                <a href="URL_FOR_PRODUCT_3">Buy Now</a>
+            </div>
+        </div>
+
+
+
+
+        <!--THIS IS THE FIRST 12 ITEMS -->
+
+
+
+
+
+         <!--THIS IS THE FIRST 120 ITEMS -->
+
+
+
+
+        <!-- Product 4 to Product 111 follow the same structure -->
+        <!-- Please copy the block above and adjust the details for each product (URL, Image, Name, Price) -->
+
     </div>
 
-    <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
-        <div class="social-icons">
-            <a href="https://tiktok.com"><img src="tik.png" alt="TikTok"></a>
-            <a href="https://facebook.com"><img src="face.png" alt="Facebook"></a>
-            <a href="https://twitter.com"><img src="twit.png" alt="Twitter"></a>
-            <a href="https://instagram.com"><img src="insta.png" alt="Instagram"></a>
+        
+        <div style="margin-top: 10px;">
+            <a href="https://www.tiktok.com" target="_blank" style="margin: 0 10px;">
+                <img src="tik.png" alt="TikTok" style="width: 30px;">
+            </a>
+            <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px;">
+                <img src="face.png" alt="Facebook" style="width: 30px;">
+            </a>
+            <a href="https://www.twitter.com" target="_blank" style="margin: 0 10px;">
+                <img src="twit.png" alt="Twitter" style="width: 30px;">
+            </a>
+            <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px;">
+                <img src="insta.png" alt="Instagram" style="width: 30px;">
+            </a>
+            <a href="https://telegram.org" target="_blank" style="margin: 0 10px;">
+                <img src="tele.png" alt="Telegram" style="width: 30px;">
+            </a>
+            <a href="https://www.whatsapp.com" target="_blank" style="margin: 0 10px;">
+                <img src="whats.png" alt="WhatsApp" style="width: 30px;">
+            </a>
         </div>
+        <br>
+
+
+        <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
     </footer>
-    
+
 </body>
 </html>
