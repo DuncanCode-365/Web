@@ -10,9 +10,11 @@
     <!-- Mobile Redirect Script -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                window.location.href = "mobile-about.html";
-            }
+            setTimeout(function() {
+                if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    window.location.href = "mobile-about.html";
+                }
+            }, 500); // Delay of 500ms before checking
         });
     </script>
 
@@ -21,9 +23,10 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
             background-image: url('g1.jpg');
-            background-size: 50%;
-            background-attachment: fixed;
+            background-size: cover;
+            background-attachment: scroll; /* Changed to 'scroll' for better performance */
             color: #000;
         }
 
@@ -36,10 +39,21 @@
             transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
         }
 
-        section:hover {
-            background: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+        /* Hover effect for non-touch screens only */
+        @media (hover: hover) and (pointer: fine) {
+            section:hover {
+                background: rgba(0, 0, 0, 0.8);
+                color: #fff;
+                box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+            }
+
+            section:hover h2 {
+                color: #00ffcc;
+            }
+
+            section:hover p, section:hover li {
+                color: #fff;
+            }
         }
 
         h2 {
@@ -49,19 +63,11 @@
             transition: color 0.5s ease;
         }
 
-        section:hover h2 {
-            color: #00ffcc;
-        }
-
         p, li {
             font-size: 1.2em;
             line-height: 1.6;
             color: #000;
             transition: color 0.5s ease;
-        }
-
-        section:hover p, section:hover li {
-            color: #fff;
         }
 
         nav {
@@ -104,6 +110,7 @@
             font-size: 1em;
         }
 
+        /* Responsive adjustments */
         @media (max-width: 768px) {
             section {
                 width: 90%;
