@@ -7,33 +7,54 @@
     <title>About - My Website</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <!-- Mobile Redirect Script -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (/Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-                window.location.href = "mobile-about.html";
-            }
-        });
-    </script>
-
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-image: url('g1.jpg');
-            background-size: 50%;
+            background-size: cover;
             background-attachment: fixed;
             color: #000;
         }
 
+        /* Navigation bar styling */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 12px;
+            text-align: center;
+            z-index: 100;
+        }
+
+        nav a {
+            margin: 0 10px;
+            padding: 10px;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #00ffcc;
+            border-radius: 25px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #00ffcc;
+            color: #000;
+            transform: scale(1.1);
+        }
+
+        /* Section styling */
         section {
-            width: 50%;
-            margin-left: 1%;
+            max-width: 600px;
+            margin: 80px auto 20px;
             padding: 25px;
             background: #fefefe;
             border-radius: 10px;
             transition: background 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
         section:hover {
@@ -43,7 +64,7 @@
         }
 
         h2 {
-            font-size: 2em;
+            font-size: 1.8em;
             margin-bottom: 10px;
             color: #000;
             transition: color 0.5s ease;
@@ -54,7 +75,7 @@
         }
 
         p, li {
-            font-size: 1.2em;
+            font-size: 1.1em;
             line-height: 1.6;
             color: #000;
             transition: color 0.5s ease;
@@ -64,50 +85,42 @@
             color: #fff;
         }
 
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            padding: 18px;
-            text-align: center;
-            z-index: 100;
-        }
-
-        nav a {
-            margin: 0 15px;
-            padding: 10px 20px;
-            color: #fff;
-            text-decoration: none;
-            border: 2px solid #00ffcc;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #00ffcc;
-            color: #000;
-            transform: scale(1.1);
+        ul {
+            padding-left: 20px;
         }
 
         footer {
             text-align: center;
-            padding: 1px;
-            background-color: rgba(0, 0, 0, 0.47);
-            width: 100%;
-            margin-top: 0;
-        }
-
-        footer p {
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
             color: #fff;
-            font-size: 1em;
         }
 
+        footer img {
+            width: 30px;
+            margin: 0 10px;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
+            nav a {
+                font-size: 0.9em;
+                padding: 8px;
+                margin: 0 5px;
+            }
+
             section {
                 width: 90%;
-                margin-left: 5%;
+                margin: 90px auto 20px;
+                padding: 15px;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            p, li {
+                font-size: 1em;
             }
         }
     </style>
@@ -125,23 +138,28 @@
         <h2>About Us</h2>
         <p>Welcome to SwiftLink!</p>
         <p>At Makro-SwiftLink, we believe in making quality products accessible to everyone. Our e-commerce platform offers an extensive selection of over a thousand items, ranging from the latest gadgets to practical small home appliances and everything in between.</p>
+        <br>
 
         <h2>Mission</h2>
         <p>Our mission is to provide a seamless shopping experience while delivering top-notch products at competitive prices. We strive to ensure that our customers can find everything they need in one convenient location, whether it's for personal use, gifts, or everyday essentials.</p>
+        <br>
 
         <h2>Our Products</h2>
         <p>We are proud to offer a diverse range of products, including:</p>
         <ul>
             <li><strong>Gadgets</strong>: Stay ahead of the curve with our selection of innovative gadgets that simplify your life and enhance your daily routines.</li>
             <li><strong>Home Appliances</strong>: Explore our collection of portable home appliances designed to make your chores easier and more efficient.</li>
-            <p>From toys to everyday-use items, specializing in rare market items.</p>
+            <p>From toys to your everyday-use items. Specializing mainly in rare items on the market today.</p>
         </ul>
+        <br>
 
         <h2>Quality Assurance</h2>
         <p>Quality is at the heart of what we do. Every product in our store undergoes rigorous quality checks to ensure it meets our high standards. We partner with trusted suppliers and manufacturers to bring you the best products available in the market.</p>
+        <br>
 
         <h2>Customer Satisfaction</h2>
         <p>Your satisfaction is our top priority. Our dedicated customer service team is here to assist you with any questions or concerns you may have. We aim to provide prompt and helpful responses to ensure that your shopping experience is nothing short of excellent.</p>
+        <br>
 
         <h2>Why Choose Us?</h2>
         <ul>
@@ -149,33 +167,21 @@
             <li><strong>Competitive Prices</strong>: We offer fair prices without compromising on quality.</li>
             <li><strong>Secure Shopping</strong>: Our website is equipped with the latest security measures to protect your personal information.</li>
         </ul>
+        <br>
 
         <h2>Join Our Community</h2>
-        <p>Stay connected with us! Follow us on <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-"><em>Instagram</em></a> for the latest updates, promotions, and product launches. We love to hear from our customers, so don’t hesitate to reach out with feedback or suggestions. Thank you for choosing SwiftLink. We look forward to serving you!</p>
+        <p>Stay connected with us! Follow us on <a href="https://www.instagram.com"><em>Instagram</em></a> for the latest updates, promotions, and product launches.</p>
     </section>
 
     <footer>
-        <div style="margin-top: 10px;">
-            <a href="https://www.tiktok.com" target="_blank" style="margin: 0 10px;">
-                <img src="tik.png" alt="TikTok" style="width: 30px;">
-            </a>
-            <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px;">
-                <img src="face.png" alt="Facebook" style="width: 30px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="margin: 0 10px;">
-                <img src="twit.png" alt="Twitter" style="width: 30px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px;">
-                <img src="insta.png" alt="Instagram" style="width: 30px;">
-            </a>
-            <a href="https://telegram.org" target="_blank" style="margin: 0 10px;">
-                <img src="tele.png" alt="Telegram" style="width: 30px;">
-            </a>
-            <a href="https://www.whatsapp.com" target="_blank" style="margin: 0 10px;">
-                <img src="whats.png" alt="WhatsApp" style="width: 30px;">
-            </a>
+        <div>
+            <a href="https://www.tiktok.com" target="_blank"><img src="tik.png" alt="TikTok"></a>
+            <a href="https://www.facebook.com" target="_blank"><img src="face.png" alt="Facebook"></a>
+            <a href="https://www.twitter.com" target="_blank"><img src="twit.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com" target="_blank"><img src="insta.png" alt="Instagram"></a>
+            <a href="https://telegram.org" target="_blank"><img src="tele.png" alt="Telegram"></a>
+            <a href="https://www.whatsapp.com" target="_blank"><img src="whats.png" alt="WhatsApp"></a>
         </div>
-        <br>
         <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
     </footer>
 
