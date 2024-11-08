@@ -73,6 +73,7 @@
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
         }
 
         .product:hover {
@@ -148,10 +149,32 @@
             filter: grayscale(0%);
         }
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 2em;
-            }
+        /* Lightbox Overlay */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox span {
+            color: white;
+            font-size: 24px;
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -174,81 +197,46 @@
     <div class="product-list">
         <!-- Existing Products -->
         
-
-        <div class="product">
-            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
-                <img src="g2.png" alt="Product 2">
-                <h3>Cherry AquaTab Deluxe 10,1 Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
-                <p class="price">R 1999</p>
-            </a>
+        <div class="product" onclick="showLightbox('g2.png')">
+            <img src="g2.png" alt="Product 2">
+            <h3>Cherry AquaTab Deluxe 10,1 Android 2 GB RAM (Wi-Fi+4G, 32 GB)</h3>
+            <p class="price">R 1999</p>
             <div class="purchase-button">
                 <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
             </div>
         </div>
 
-        <div class="product">
-            <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">
-                <img src="2954.png" alt="Wireless Headphones">
-                <h3>Wireless Headphones TWi12 Bluetooth Headset (Pink)</h3>
-                <p class="price">R 149</p>
-            </a>
+        <div class="product" onclick="showLightbox('2954.png')">
+            <img src="2954.png" alt="Wireless Headphones">
+            <h3>Wireless Headphones TWi12 Bluetooth Headset (Pink)</h3>
+            <p class="price">R 149</p>
             <div class="purchase-button">
                 <a href="https://www.makro.co.za/electronics-computers/audio-video/headphones/headphones/headphones/wireless-headphones-twi12-bluetooth-headset-pink-/p/HDPH5HXFUJHT57QF">Buy Now</a>
             </div>
         </div>
 
-        <div class="product">
-            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">
-                <img src="53843.png" alt="Kioxia TransMemory">
-                <h3>Kioxia TransMemory 32 GB (Silver, Type A)</h3>
-                <p class="price">R 139</p>
-            </a>
+        <div class="product" onclick="showLightbox('53843.png')">
+            <img src="53843.png" alt="Kioxia TransMemory">
+            <h3>Kioxia TransMemory 32 GB (Silver, Type A)</h3>
+            <p class="price">R 139</p>
             <div class="purchase-button">
                 <a href="https://www.makro.co.za/electronics-computers/computers-tablets/storage-hard-drives/usb-flash-memory/usb-flash-drives/kioxia-transmemory-32-gb-silver-type-a-/p/FDRH5P4VSPXXDYWR">Buy Now</a>
             </div>
         </div>
 
-        <!-- Continue adding the other products here -->
+        <!-- Additional Products (Repeat structure as needed) -->
 
-        <div class="product">
-            <a href="https://example.com">
-                <img src="product1.jpg" alt="Product 1">
-                <h3>Product Name 1</h3>
-                <p class="price">R749.99</p>
-            </a>
-            <div class="purchase-button">
-                <a href="https://example.com">Buy Now</a>
-            </div>
-        </div>
+    </div>
 
-        <div class="product">
-            <a href="https://example.com">
-                <img src="product2.jpg" alt="Product 2">
-                <h3>Product Name 2</h3>
-                <p class="price">R1999.99</p>
-            </a>
-            <div class="purchase-button">
-                <a href="https://example.com">Buy Now</a>
-            </div>
-        </div>
-
-        <!-- Added Products -->
-        <div class="product">
-            <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">
-                <img src="g1.jpg" alt="Product 1">
-                <h3>Product Name 1</h3>
-                <p class="price">R749.99</p>
-            </a>
-            <div class="purchase-button">
-                <a href="https://www.makro.co.za/electronics-computers/computers-tablets/tablets-e-readers/android/tablets-3-4-5g/cherry-aquatab-deluxe-10-1-android-2-gb-ram/p/TBLH42HHBZS2SUTW">Buy Now</a>
-            </div>
-        </div>
-
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-image" src="" alt="Enlarged Product Image">
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>Copyright &copy; 2024 SwiftLink Wholesale - All rights reserved</p>
+        <p>&copy; 2024 SwiftLink Wholesale - All rights reserved</p>
         <div class="social-icons">
             <a href="https://tiktok.com"><img src="tik.png" alt="TikTok"></a>
             <a href="https://facebook.com"><img src="face.png" alt="Facebook"></a>
@@ -258,6 +246,17 @@
             <a href="https://whatsapp.com"><img src="whats.png" alt="WhatsApp"></a>
         </div>
     </footer>
+
+    <script>
+        function showLightbox(imageSrc) {
+            document.getElementById('lightbox').style.display = 'flex';
+            document.getElementById('lightbox-image').src = imageSrc;
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+    </script>
 
 </body>
 </html>
