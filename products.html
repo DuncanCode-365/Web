@@ -280,7 +280,6 @@
             </div>
         </div>
 
-
         <div class="product" onclick="showLightbox('6095.png')">
             <img src="6095.png" alt="Mobicel Legend Pro">
             <h3>Mobicel Legend Pro LTE (2 GB RAM)</h3>
@@ -289,7 +288,16 @@
                 <a href="https://www.makro.co.za/electronics-computers/cellphones/cellphone-handsets/devices/premium-smart-handsets/mobicel-legend-pro-lte-2-gb-ram-/p/MOBH5Y5M4X324KT6">Buy Now</a>
             </div>
         </div>
-
+        
+        <div class="product" onclick="showLightbox('6069.png')">
+            <img src="6069.png" alt="Hisense E70">
+            <h3>HiSense E70 (Blue, 64 GB) (4 GB RAM)</h3>
+            <p class="price">R 1699</p>
+            <div class="purchase-button">
+                <a href="https://www.makro.co.za/electronics-computers/cellphones/cellphone-handsets/devices/premium-smart-handsets/hisense-e70-blue-64-gb-4-gb-ram-/p/MOBH5465RVHMFR6V">Buy Now</a>
+            </div>
+        </div>
+        
         <div class="product" onclick="showLightbox('.png')">
             <img src=".png" alt="Kioxia TransMemory">
             <h3></h3>
@@ -297,39 +305,48 @@
             <div class="purchase-button">
                 <a href="">Buy Now</a>
             </div>
-        <!-- Additional Products (Repeat structure as needed) -->
-
-    </div>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <span onclick="closeLightbox()">&times;</span>
-        <img id="lightbox-image" src="" alt="Enlarged Product Image">
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 SwiftLink Wholesale - All rights reserved</p>
-        <div class="social-icons">
-            <a href="https://tiktok.com"><img src="tik.png" alt="TikTok"></a>
-            <a href="https://facebook.com"><img src="face.png" alt="Facebook"></a>
-            <a href="https://twitter.com"><img src="twit.png" alt="Twitter"></a>
-            <a href="https://instagram.com"><img src="insta.png" alt="Instagram"></a>
-            <a href="https://telegram.org"><img src="tele.png" alt="Telegram"></a>
-            <a href="https://whatsapp.com"><img src="whats.png" alt="WhatsApp"></a>
         </div>
-    </footer>
-
-    <script>
-        function showLightbox(imageSrc) {
-            document.getElementById('lightbox').style.display = 'flex';
-            document.getElementById('lightbox-image').src = imageSrc;
-        }
-
-        function closeLightbox() {
-            document.getElementById('lightbox').style.display = 'none';
-        }
-    </script>
-
+        
+        <div class="product" onclick="showLightbox('.png')">
+            <img src=".png" alt="Kioxia TransMemory">
+            <h3></h3>
+            <p class="price">R </p>
+            <div class="purchase-button">
+                <a href="">Buy Now</a>
+            </div>
+        </div>
+        
+        <!-- Additional Products (Repeat structure as needed) -->
+        
+        <!-- Lightbox -->
+        <div class="lightbox" id="lightbox">
+            <span onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-image" src="" alt="Enlarged Product Image">
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 SwiftLink Wholesale - All rights reserved</p>
+            <div class="social-icons">
+                <a href="https://tiktok.com"><img src="tik.png" alt="TikTok"></a>
+                <a href="https://facebook.com"><img src="face.png" alt="Facebook"></a>
+                <a href="https://twitter.com"><img src="twit.png" alt="Twitter"></a>
+                <a href="https://instagram.com"><img src="insta.png" alt="Instagram"></a>
+                <a href="https://telegram.org"><img src="tele.png" alt="Telegram"></a>
+                <a href="https://whatsapp.com"><img src="whats.png" alt="WhatsApp"></a>
+            </div>
+        </footer>
+        
+        <script>
+            function showLightbox(imageSrc) {
+                document.getElementById('lightbox').style.display = 'flex';
+                document.getElementById('lightbox-image').src = imageSrc;
+            }
+        
+            function closeLightbox() {
+                document.getElementById('lightbox').style.display = 'none';
+            }
+        </script>
+    
 </body>
 </html>
