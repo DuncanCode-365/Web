@@ -186,11 +186,13 @@
 
         #sugar {
             text-align: center;
-            background-color: #a3b1bb;
+            background-color: #c5dded;
         }
-        #sugar img {
+        .main-img {
             max-width: 100%;
             height: auto;
+            margin-bottom: 10px;
+            border-radius: 32%;
         }
         #sugar p {
             margin-top: 10px;
@@ -199,6 +201,13 @@
             font-family: 'Playfair Display', serif; /* Apply Playfair Display */
             font-weight: 500; /* Medium weight */
         }
+        .icon {
+            vertical-align: middle; /* Align icon with text */
+            width: 40px; /* Adjust icon size */
+            height: 40px;
+            margin: 0 5px; /* Add spacing around the icon */
+        }
+        
 
     </style>
 
@@ -232,8 +241,11 @@
 
 
     <div id="sugar">
-        <img src="1.png" alt="Awareness">
-        <p>If you see this when buying... Someone beat you to the promo! Come back in a few days to check if we have stock!</p>
+        <img src="1.png" alt="Main Awareness Image" class="main-img">
+        <p>
+            If you see this <img src="F2.png" alt="Alert Icon" class="icon"> ... Someone beat you to the promo! <br>
+            Come check again in few days!
+        </p>
     </div>
     
     <!-- Product List -->
