@@ -1,0 +1,26 @@
+name: Deploy Website to Server
+
+on:
+  push:
+    branches:
+      - main  # or whichever branch you want to deploy from
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository code
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Set up SSH to the server (with the private key you added to GitHub)
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # Deploy the code to the server
+      - name: Deploy to Server
+        run: |
+          ssh -o StrictHostKeyChecking=no $USER@$SERVER_IP "cd /var/www/Swiftlink && git pull origin main && sudo systemctl restart nginx"
