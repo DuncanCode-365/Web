@@ -3,7 +3,7 @@ name: Deploy Website to Server
 on:
   push:
     branches:
-      - main  # or whichever branch you want to deploy from
+      - main  # Change if using a different branch
 
 jobs:
   deploy:
@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Set up SSH to the server (with the private key you added to GitHub)
+      # Set up SSH to the server (using the private key from GitHub Secrets)
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
@@ -23,4 +23,4 @@ jobs:
       # Deploy the code to the server
       - name: Deploy to Server
         run: |
-          ssh -o StrictHostKeyChecking=no $USER@$SERVER_IP "cd /var/www/Swiftlink && git pull origin main && sudo systemctl restart nginx"
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} "cd /var/www/Swiftlink && git pull origin main && sudo systemctl restart nginx"
