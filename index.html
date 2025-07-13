@@ -1,277 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Home - TDM MARKETPLACE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Basic Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(145deg, #00ccff, #0e0e0e, #374c94, #4fd6ad);
-            color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            line-height: 1.8;
-            height: 100%;
-            flex-direction: column;
-        }
-
-        /* Background image that covers the entire page */
-        .bg-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('ppl1.jpg'); /* Replace with your image */
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        nav {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            background: rgb(0, 0, 0, 0);
-            padding: 10px 20px;
-            z-index: 1000;
-            text-align: center;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0);
-        }
-
-        nav a {
-            color: #fff;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #00ffcc;
-            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc;
-        }
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            flex: 1;
-        }
-
-        header h1 {
-            font-size: 3em;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            animation: fadeInDown 1.5s ease-in-out;
-            margin-bottom: 30px;
-        }
-
-        header h2, header h3, header h4 {
-            font-size: 1em;
-            font-weight: 50;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
-            animation: fadeInDown 2.5s ease-in-out;
-            margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 0px 35px;
-            font-size: 1.2em;
-            color: #fff;
-            text-decoration: none;
-            border: 2px solid #00ffcc;
-            border-radius: 50px;
-            background: transparent;
-            box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px rgba(0, 255, 204, 0.5);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
-            position: relative;
-        }
-
-        .btn:hover {
-            background-color: #00ffcc;
-            color: #000;
-            transform: scale(1.1);
-            box-shadow: 0 0 20px #00ffcc, 0 0 30px #00ffcc, 0 0 40px #00ffcc, 0 0 50px rgba(0, 255, 204, 0.8);
-        }
-
-        /* Random floating and bouncing animation */
-        @keyframes floatAndBounce {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-            25% {
-                transform: translate(20px, -20px) scale(1.1);
-            }
-            50% {
-                transform: translate(-30px, 20px) scale(0.9);
-            }
-            75% {
-                transform: translate(30px, -10px) scale(1.2);
-            }
-            100% {
-                transform: translate(0, 0) scale(1);
-            }
-        }
-
-        footer {
-            background-color: transparent;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        footer p {
-            font-size: 0.9em;
-            color: #ddd;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            0% {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5RX2367YJB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-5RX2367YJB');
-</script>
-
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Gentlemen Joint</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+    body {
+      background: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+      line-height: 1.6;
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 20px;
+      background: #fff;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      animation: fadeInDown 0.8s ease-in-out;
+    }
+    header img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    nav a {
+      margin: 5px 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      font-size: 14px;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #333;
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+    .hero p {
+      font-size: 1rem;
+      margin-bottom: 25px;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .hero a {
+      padding: 10px 20px;
+      background: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s;
+      display: inline-block;
+    }
+    .hero a:hover {
+      background: #555;
+    }
+    .products {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .products h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.5rem;
+      animation: fadeInUp 1s ease-in-out;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: #fff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .product:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .product img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product h3 {
+      margin: 12px 0 8px;
+      font-size: 1.1rem;
+    }
+    .product p {
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+    .product a {
+      display: inline-block;
+      background: #333;
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s;
+      font-size: 0.9rem;
+    }
+    .product a:hover {
+      background: #555;
+    }
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+    }
+    footer a {
+      color: #ccc;
+      margin: 0 8px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    footer a:hover {
+      color: #fff;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(30px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInUp {
+      from {opacity: 0; transform: translateY(40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes fadeInDown {
+      from {opacity: 0; transform: translateY(-40px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
 </head>
 <body>
-
-    <div class="bg-image"></div> <!-- Full page background image -->
-
+  <header>
+    <img src="Joint.jpg" alt="The Gentlemen Joint Logo" />
     <nav>
-        <a href="index.html" class="btn">Home</a>
-        <a href="products.html" class="btn">Products</a>
-        <a href="about.html" class="btn">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
     </nav>
+  </header>
 
-    <div class="content">
-        <header>
-            <h1>Exclusive Offers at TDM Marketplace</h1>
-            <h2>We advertise products only on <strong>Promotion</strong> at Makro online stores</h2>
-            <h3>You never have to manually search for promotions and specials anymore</h3>
-            <h4>Leave that to us. We got you!</h4>
-        </header>
+  <section class="hero">
+    <h1>Welcome to The Gentlemen Joint</h1>
+    <p>Your one-stop destination for stylish essentials, tech, grooming and more.</p>
+    <a href="#products">Browse Products</a>
+  </section>
 
-        <a href="products.html" class="btn">Shop Now</a>
+  <section class="products" id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="Joint.jpg" alt="Product 1">
+        <h3>Product Title</h3>
+        <p>Short description of the product goes here. You can edit this in VS Code.</p>
+        <a href="https://www.makro.co.za/" target="_blank">Buy at Makro</a>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        <div style="margin-top: 10px;">
-            <a href="https://www.tiktok.com" target="_blank" style="margin: 0 10px;">
-                <img src="tik.png" alt="TikTok" style="width: 30px;">
-            </a>
-            <a href="https://www.facebook.com" target="_blank" style="margin: 0 10px;">
-                <img src="face.png" alt="Facebook" style="width: 30px;">
-            </a>
-            <a href="https://www.twitter.com" target="_blank" style="margin: 0 10px;">
-                <img src="twit.png" alt="Twitter" style="width: 30px;">
-            </a>
-            <a href="https://www.instagram.com" target="_blank" style="margin: 0 10px;">
-                <img src="insta.png" alt="Instagram" style="width: 30px;">
-            </a>
-            <a href="https://telegram.org" target="_blank" style="margin: 0 10px;">
-                <img src="tele.png" alt="Telegram" style="width: 30px;">
-            </a>
-            <a href="https://www.whatsapp.com" target="_blank" style="margin: 0 10px;">
-                <img src="whats.png" alt="WhatsApp" style="width: 30px;">
-            </a>
-        </div>
-        <br>
-
-        <p>Copyright &copy; 2024 TDM Marketplace - All rights reserved | <a href="privacy.html" style="text-decoration: none;">Privacy Policy</a></p>
-    </footer>
-
-    <script>
-        // Detect device type and redirect to mobile-friendly page if on mobile
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
-            window.location.href = "mobile.html";
-        }
-
-        let timeout;
-        const bgImage = document.querySelector('.bg-image');
-        const buttons = document.querySelectorAll('.btn');
-
-        // Function to start floating and bouncing animation for buttons
-        function startFloatingAndBouncing() {
-            buttons.forEach(button => {
-                button.style.animation = 'floatAndBounce 5s infinite ease-in-out';
-            });
-        }
-
-        // Function to stop floating and reset buttons
-        function stopFloatingAndBouncing() {
-            buttons.forEach(button => {
-                button.style.animation = 'none';
-                button.style.transform = 'translate(0, 0) scale(1)'; // Reset to original position
-            });
-        }
-
-        // Add event listeners for mouse movement and clicks to stop the animation
-        document.addEventListener('mousemove', () => {
-            clearTimeout(timeout);
-            stopFloatingAndBouncing();
-            bgImage.style.opacity = '0'; // Fade out when mouse moves
-
-            timeout = setTimeout(() => {
-                startFloatingAndBouncing(); // Start floating and bouncing after 2 seconds of inactivity
-                bgImage.style.opacity = '1'; // Fade in background
-            }, 2000);
-        });
-
-        document.addEventListener('click', () => {
-            clearTimeout(timeout);
-            stopFloatingAndBouncing();
-            bgImage.style.opacity = '0'; // Fade out when mouse is clicked
-
-            timeout = setTimeout(() => {
-                startFloatingAndBouncing(); // Start floating and bouncing after 2 seconds of inactivity
-                bgImage.style.opacity = '1'; // Fade in background
-            }, 2000);
-        });
-
-    </script>
-
+  <footer id="contact">
+    <p>Contact us at <a href="mailto:info@gentlemenjoint.co.za">info@gentlemenjoint.co.za</a></p>
+    <p>
+      <a href="https://www.facebook.com/" target="_blank">Facebook</a> |
+      <a href="https://www.instagram.com/" target="_blank">Instagram</a> |
+      <a href="https://wa.me/yourwhatsapplink" target="_blank">WhatsApp</a>
+    </p>
+    <p>&copy; 2025 The Gentlemen Joint. All rights reserved.</p>
+  </footer>
 </body>
 </html>
